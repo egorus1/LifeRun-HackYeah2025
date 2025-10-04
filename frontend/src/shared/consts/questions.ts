@@ -12,6 +12,6 @@ export const questions: Question[] = [
     {
         id: 5,
         label: "Planned year of ending professional activity (default — year of reaching retirement age)",
-        type: "slider",
+        type: "input-otp",
     },
 ];

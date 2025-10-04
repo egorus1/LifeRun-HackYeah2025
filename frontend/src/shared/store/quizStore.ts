@@ -1,4 +1,5 @@
 import {create} from "zustand";
+import {questions} from "@/shared/consts/questions.ts";
 
 interface QuizState {
     currentQuestion: number;
@@ -11,7 +12,7 @@ export const useQuizStore = create<QuizState>((set) => ({
 
     nextQuestion: () =>
         set((state) => ({
-            currentQuestion: Math.min(state.currentQuestion + 1, 2),
+            currentQuestion: Math.min(state.currentQuestion + 1, questions.length),
         })),
 
     prevQuestion: () =>
