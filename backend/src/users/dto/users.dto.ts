@@ -1,24 +1,36 @@
-// ============================================
-// USER DTOs
-// ============================================
+import { IsNumber, IsString, IsNotEmpty } from "class-validator";
+
 
 export class CreateUserDto {
+  @IsString()
   name?: string;
+
+  @IsString()
+  @IsNotEmpty()
   sex: string;
+
+  @IsNumber()
+  @IsNotEmpty()
   age: number;
+
+  @IsNumber()
+  @IsNotEmpty()
   salary: number;
+
+  @IsNumber()
+  @IsNotEmpty()
   yearOfStarting: number;
+
+  @IsNumber()
+  @IsNotEmpty()
   plannedYearOfRetirement: number;
+
+  @IsString()
+  @IsNotEmpty()
+  disabilities: string;
 }
 
-export class UpdateUserDto {
-  name?: string;
-  sex?: string;
-  age?: number;
-  salary?: number;
-  yearOfStarting?: number;
-  plannedYearOfRetirement?: number;
-}
+
 
 export class UserDto {
   id: string;
@@ -28,24 +40,23 @@ export class UserDto {
   salary: number;
   yearOfStarting: number;
   plannedYearOfRetirement: number;
+  disabilities: string;
   createdAt: Date;
   updatedAt: Date;
   objective?: ObjectiveDto;
 }
 
-// ============================================
-// OBJECTIVE DTOs
-// ============================================
-
 export class CreateObjectiveDto {
+  @IsString()
+  @IsNotEmpty() 
   title: string;
-  desiredMonthlyPension: number;
-  userId: string;
-}
 
-export class UpdateObjectiveDto {
-  title?: string;
-  desiredMonthlyPension?: number;
+  @IsNumber()
+  @IsNotEmpty() 
+  desiredMonthlyPension: number;
+
+  @IsNumber()
+  userId: string;
 }
 
 export class ObjectiveDto {
