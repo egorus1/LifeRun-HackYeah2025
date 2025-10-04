@@ -1,1 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
 @import "tailwindcss";
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+#root, body {
+    min-height: 100vh;
+}
+
+@theme {
+    --color-orange-custom: #FFB34F;
+    --color-green-custom: #00993F;
+    --color-gray-custom: #BEC3CE;
+    --color-blue-custom: #3F416E;
+    --color-red-custom: #F05E5E;
+    --color-black-custom: #000000;
+}
