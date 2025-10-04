@@ -7,13 +7,17 @@ body {
 
 #root, body {
     min-height: 100vh;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
 }
 
 @theme {
-    --color-orange-custom: #FFB34F;
-    --color-green-custom: #00993F;
-    --color-gray-custom: #BEC3CE;
-    --color-blue-custom: #3F416E;
-    --color-red-custom: #F05E5E;
-    --color-black-custom: #000000;
+    --color-bgColor: #BEC3CE;
+    --color-greenCustom: #00993F;
+    --color-purpleCustom: #3F416E;
+    --color-orangeCustom: #FF3B00;
+
 }
