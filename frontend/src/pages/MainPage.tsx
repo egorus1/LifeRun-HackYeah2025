@@ -9,9 +9,9 @@ export const MainPage = () => {
                 {/* Left Content */}
                 <div className="space-y-12">
                     <div className="relative">
-                        <h1 className="text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight">
+                        <h1 className="text-7xl lg:text-8xl xl:text-9xl font-bold">
                             <span
-                                className="bg-gradient-to-r from-greenCustom via-purpleCustom to-orangeCustom bg-clip-text text-transparent">
+                                className="bg-gradient-to-r from-greenCustom via-purpleCustom to-purpleCustom bg-clip-text text-transparent">
                                 Welcome
                             </span>
                             <br/>

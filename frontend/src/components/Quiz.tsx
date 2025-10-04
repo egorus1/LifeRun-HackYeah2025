@@ -62,8 +62,8 @@ export const Quiz = () => {
                 <div className="mb-12">
 
                     {question.type === "input" && (
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-700">Your answer</label>
+                        <div className="space-y-2 flex gap-2 items-center">
+                            <label className="text-2xl font-medium text-gray-700">Your answer</label>
                             <input
                                 type="number"
                                 placeholder="Enter your age"
