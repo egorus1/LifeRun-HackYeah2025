@@ -1,5 +1,6 @@
 import {useQuizStore} from "@/shared/store/quizStore.ts";
 import {questions} from "@/shared/consts/questions.ts";
+import {RadioGroup, RadioGroupItem} from "@/shared/ui/radio-group.tsx";
 
 export const Quiz = () => {
     const {currentQuestion, nextQuestion, prevQuestion} = useQuizStore();
@@ -21,6 +22,27 @@ export const Quiz = () => {
                     placeholder="Enter your age"
                     className="border-2 border-gray-300 p-3 rounded-lg mt-4 block w-64 focus:border-greenCustom focus:outline-none transition-colors"
                 />
+            )}
+
+            {question.type === "select" && (
+                <RadioGroup className="mt-4">
+                    <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="male" id="male" />
+                        <label htmlFor="male">Male</label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="female" id="female" />
+                        <label htmlFor="female">Female</label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="others" id="others" />
+                        <label htmlFor="others">Others</label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="dont-want-to-say" id="dont-want-to-say" />
+                        <label htmlFor="dont-want-to-say">Don't want to say</label>
+                    </div>
+                </RadioGroup>
             )}
 
             <div className="flex justify-between mt-5 w-full">

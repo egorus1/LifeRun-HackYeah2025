@@ -6,7 +6,7 @@ export type Question = {
 
 export const questions: Question[] = [
     {id: 1, label: "What is your age", type: "input"},
-    {id: 2, label: "Sex", type: "select"},
+    {id: 2, label: "What is your gender", type: "select"},
     {id: 3, label: "Gross salary amount", type: "slider"},
     {id: 4, label: "Year of starting work", type: "input-otp"},
     {
