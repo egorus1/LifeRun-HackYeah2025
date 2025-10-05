@@ -1,24 +1,45 @@
-import { IsString, IsNumber } from 'class-validator';
+import { IsString, IsNumber, IsOptional } from 'class-validator';
 
-export class CreateObjectiveDto {
+// POST - Calculate (no updates)
+export class CalculateDto {
   @IsString()
   token: string;
 
   @IsNumber()
-  objective: number; // Desired monthly pension after retirement
+  objective: number;
+}
+
+// PATCH - Update fields + recalculate
+export class UpdateAndCalculateDto {
+  @IsString()
+  token: string;
+
+  @IsNumber()
+  objective: number;
+
+  @IsOptional()
+  @IsNumber()
+  salary?: number;
+
+  @IsOptional()
+  @IsNumber()
+  yearOfStarting?: number;
+
+  @IsOptional()
+  @IsNumber()
+  plannedYearOfRetirement?: number;
 }
 
 export class UserDataDto {
-  salary: number;                    // Monthly salary
-  age: number;                       // Current age
-  yearOfStarting: number;            // Year started working
-  plannedYearOfRetirement: number; 
-  willingToSave: number;  // Year planning to retire
+  salary: number;
+  age: number;
+  yearOfStarting: number;
+  plannedYearOfRetirement: number;
+  willingToSave: number;
 }
 
-
 export class GraphDataDto {
-  labels: number[];  // Years array [2025, 2026, 2027, ...]
+  labels: number[];
   datasets: {
     label: string;
     data: number[];
@@ -27,6 +48,7 @@ export class GraphDataDto {
 }
 
 export class CalculationResponseDto {
-  percentage: number;  // Required savings percentage
-  data: GraphDataDto;  // Chart.js configuration
+  percentage: number;
+  data: GraphDataDto;
+  userData: UserDataDto;
 }
