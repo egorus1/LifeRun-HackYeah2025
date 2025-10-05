@@ -1,8 +1,8 @@
-export type Question = {
-    id: number;
-    label: string;
-    type: "input" | "select" | "slider" | "input-otp" | "slider-percent";
-};
+export interface Question {
+  id: number;
+  label: string;
+  type: "input" | "select" | "slider" | "input-otp" | "slider-percent";
+}
 
 export const questions: Question[] = [
     {id: 1, label: "What is your age", type: "input"},
@@ -16,7 +16,7 @@ export const questions: Question[] = [
     },
     {
         id: 6,
-        label: "How much money are you willing to save for your future pension?",
+        label: "What percentage of your salary are you willing to save for retirement?",
         type: "slider-percent",
     },
 ];

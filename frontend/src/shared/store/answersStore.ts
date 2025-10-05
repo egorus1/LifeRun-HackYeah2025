@@ -1,19 +1,18 @@
 import { create } from "zustand";
 
 interface AnswersState {
-  answers: Record<number, any>;
+  answers: Record<number, string | number>;
   willingToSave: number;
-  setAnswer: (questionIndex: number, answer: any) => void;
-  getAnswer: (questionIndex: number) => any;
+  setAnswer: (questionIndex: number, answer: string | number) => void;
+  getAnswer: (questionIndex: number) => string | number | undefined;
   setWillingToSave: (value: number) => void;
-  clearAnswers: () => void;
 }
 
-export const useAnswersStore = create<AnswersState>((set, get) => ({
+export const useAnswersStore = create<AnswersState & { clearAnswers: () => void }>((set, get) => ({
   answers: {},
   willingToSave: 10,
   
-  setAnswer: (questionIndex: number, answer: any) =>
+  setAnswer: (questionIndex: number, answer: string | number) =>
     set((state) => ({
       answers: { ...state.answers, [questionIndex]: answer }
     })),

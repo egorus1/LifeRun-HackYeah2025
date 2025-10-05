@@ -1,5 +1,5 @@
-import {create} from "zustand";
-import {questions} from "@/shared/consts/questions.ts";
+import { create } from "zustand";
+import { questions } from "@/shared/consts/questions.ts";
 
 interface QuizState {
     currentQuestion: number;
