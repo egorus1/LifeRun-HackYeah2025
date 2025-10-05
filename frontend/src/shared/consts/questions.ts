@@ -1,7 +1,7 @@
 export type Question = {
     id: number;
     label: string;
-    type: "input" | "select" | "slider" | "input-otp";
+    type: "input" | "select" | "slider" | "input-otp" | "slider-percent";
 };
 
 export const questions: Question[] = [
@@ -13,5 +13,10 @@ export const questions: Question[] = [
         id: 5,
         label: "Planned year of ending professional activity (default — year of reaching retirement age)",
         type: "input-otp",
+    },
+    {
+        id: 6,
+        label: "How much money are you willing to save for your future pension",
+        type: "slider-percent",
     },
 ];

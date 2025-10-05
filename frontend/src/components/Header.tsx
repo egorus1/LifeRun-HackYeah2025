@@ -87,29 +87,41 @@ export const Header = () => {
                 className={`lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 overflow-hidden transition-all duration-500 ${isMenuOpen ? 'fixed top-20 left-0 w-full h-[calc(100vh-5rem)] opacity-100 z-50' : 'max-h-0 opacity-0'}`}>
                 <div className="px-8 py-8">
                     <div className="flex flex-col gap-6">
+                        {/* Accessibility Links */}
+                        <div className="flex items-center justify-center gap-3 pb-6 border-b border-gray-100">
+                            <a className="group relative block border-2 border-purpleCustom/30 hover:border-purpleCustom p-3 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-white/80 backdrop-blur-sm"
+                               target="_blank"
+                               href="https://www.zus.pl/o-zus/kontakt/obsluga-osob-z-niepelnosprawnosciami">
+                                <img src={Link1} alt="link"
+                                     className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"/>
+                                <div
+                                    className="absolute inset-0 bg-gradient-to-r from-greenCustom/10 to-purpleCustom/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                            <a className="group relative block border-2 border-purpleCustom/30 hover:border-purpleCustom p-3 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-white/80 backdrop-blur-sm"
+                               href="https://www.zus.pl/o-zus/kontakt/obsluga-osob-z-niepelnosprawnosciami/informacje-dla-osob-nieslyszacych"
+                               target="_blank">
+                                <img src={Link2} alt="link"
+                                     className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"/>
+                                <div
+                                    className="absolute inset-0 bg-gradient-to-r from-greenCustom/10 to-purpleCustom/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+                        </div>
+
+                        {/* Login and Guest Buttons */}
                         <button
-                            className="group text-xl font-semibold text-greenCustom py-4 border-b border-gray-100 relative transition-all duration-300 hover:text-green-600">
-                            <span className="relative z-10">Register</span>
+                            className="group flex gap-2 items-center justify-center px-6 py-4 bg-white text-greenCustom hover:text-white border-2 border-greenCustom/30 hover:border-greenCustom rounded-2xl font-semibold text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+                            <span className="relative z-10">Log in</span>
+                            <img src={Login} alt="login"
+                                 className="w-6 h-6 relative z-10 transition-transform duration-300 group-hover:rotate-12"/>
                             <div
-                                className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-greenCustom to-purpleCustom rounded-full group-hover:w-full transition-all duration-300"></div>
+                                className="absolute inset-0 bg-gradient-to-r from-greenCustom to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </button>
+
                         <button
-                            className="group text-xl font-semibold text-greenCustom py-4 border-b border-gray-100 relative transition-all duration-300 hover:text-green-600">
-                            <span className="relative z-10">Login</span>
+                            className="group px-6 py-4 text-lg font-semibold text-greenCustom hover:text-white bg-white border-2 border-greenCustom/30 hover:border-greenCustom rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden">
+                            <span className="relative z-10">Continue as guest</span>
                             <div
-                                className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-greenCustom to-purpleCustom rounded-full group-hover:w-full transition-all duration-300"></div>
-                        </button>
-                        <button
-                            className="group text-xl font-semibold text-greenCustom py-4 border-b border-gray-100 relative transition-all duration-300 hover:text-green-600">
-                            <span className="relative z-10">Preferences</span>
-                            <div
-                                className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-greenCustom to-purpleCustom rounded-full group-hover:w-full transition-all duration-300"></div>
-                        </button>
-                        <button
-                            className="group text-xl font-semibold text-greenCustom py-4 relative transition-all duration-300 hover:text-green-600">
-                            <span className="relative z-10">Contact Us</span>
-                            <div
-                                className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-greenCustom to-purpleCustom rounded-full group-hover:w-full transition-all duration-300"></div>
+                                className="absolute inset-0 bg-gradient-to-r from-greenCustom to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </button>
                     </div>
                 </div>

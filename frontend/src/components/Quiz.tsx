@@ -10,8 +10,9 @@ import {postUserAnswers} from "@/shared/api/user/user.ts";
 
 export const Quiz = () => {
     const {currentQuestion, nextQuestion, prevQuestion} = useQuizStore();
-    const {setAnswer, getAnswer, answers} = useAnswersStore();
+    const {setAnswer, getAnswer, answers, willingToSave, setWillingToSave} = useAnswersStore();
     const [sliderValue, setSliderValue] = useState(1000);
+    const [percentValue, setPercentValue] = useState(10);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const question = questions[currentQuestion];
@@ -21,6 +22,7 @@ export const Quiz = () => {
         if (question.type === "input") return answer && answer.trim() !== "";
         if (question.type === "select") return answer !== undefined;
         if (question.type === "slider") return answer !== undefined;
+        if (question.type === "slider-percent") return answer !== undefined;
         if (question.type === "input-otp") return answer && answer.length === 4;
         return false;
     };
@@ -29,6 +31,11 @@ export const Quiz = () => {
         const savedAnswer = getAnswer(currentQuestion);
         if (savedAnswer !== undefined && question.type === "slider") {
             setSliderValue(savedAnswer);
+        }
+        if (savedAnswer !== undefined && question.type === "slider-percent") {
+            setPercentValue(savedAnswer);
+        } else if (question.type === "slider-percent") {
+            setPercentValue(willingToSave);
         }
     }, [currentQuestion, getAnswer, question.type]);
 
@@ -137,6 +144,35 @@ export const Quiz = () => {
                         </div>
                     )}
 
+                    {question.type === "slider-percent" && (
+                        <div className="space-y-6">
+                            <div className="text-center">
+                                <div
+                                    className="inline-flex items-center gap-3 bg-greenCustom text-white px-6 py-3 rounded-2xl text-2xl font-bold">
+                                    <span>{percentValue}%</span>
+                                </div>
+                            </div>
+                            <div className="px-4">
+                            <Slider
+                                value={[percentValue]}
+                                onValueChange={(value) => {
+                                    setPercentValue(value[0]);
+                                    setAnswer(currentQuestion, value[0]);
+                                    setWillingToSave(value[0]);
+                                }}
+                                min={0}
+                                max={100}
+                                step={1}
+                                className="w-full"
+                            />
+                                <div className="flex justify-between text-sm text-gray-500 mt-2">
+                                    <span>0%</span>
+                                    <span>100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {question.type === "input-otp" && (
                         <div className="flex flex-col items-center space-y-4">
                             <p className="text-gray-600">Enter the 4-digit code</p>
@@ -185,7 +221,7 @@ export const Quiz = () => {
                             if (currentQuestion === questions.length - 1) {
                                 setIsSubmitting(true);
                                 try {
-                                    await postUserAnswers(answers);
+                                    await postUserAnswers(answers, willingToSave);
                                     console.log('Answers submitted successfully');
                                 } catch (error) {
                                     console.error('Failed to submit answers:', error);
