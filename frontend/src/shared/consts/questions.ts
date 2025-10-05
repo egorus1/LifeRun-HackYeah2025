@@ -16,7 +16,7 @@ export const questions: Question[] = [
     },
     {
         id: 6,
-        label: "How much money are you willing to save for your future pension",
+        label: "How much money are you willing to save for your future pension?",
         type: "slider-percent",
     },
 ];

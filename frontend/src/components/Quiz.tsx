@@ -7,9 +7,12 @@ import {Slider} from "@/shared/ui/slider.tsx";
 import {useEffect, useState} from "react";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 import {postUserAnswers} from "@/shared/api/user/user.ts";
+import {useNavigate} from "react-router-dom";
+import {RoutePaths} from "@/shared/config/routeConfig.tsx";
 
 export const Quiz = () => {
     const {currentQuestion, nextQuestion, prevQuestion} = useQuizStore();
+    const navigate = useNavigate();
     const {setAnswer, getAnswer, answers, willingToSave, setWillingToSave} = useAnswersStore();
     const [sliderValue, setSliderValue] = useState(1000);
     const [percentValue, setPercentValue] = useState(10);
@@ -223,6 +226,7 @@ export const Quiz = () => {
                                 try {
                                     await postUserAnswers(answers, willingToSave);
                                     console.log('Answers submitted successfully');
+                                    navigate(RoutePaths.dashboard);
                                 } catch (error) {
                                     console.error('Failed to submit answers:', error);
                                 } finally {
