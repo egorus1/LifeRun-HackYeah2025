@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://carless-margarete-counterattractive.ngrok-free.dev/";
+const BASE_URL = import.meta.env.VITE_PUBLIC_URL;
 
 function createInstance() {
     const instance = axios.create({
