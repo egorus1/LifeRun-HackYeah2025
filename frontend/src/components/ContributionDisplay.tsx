@@ -4,7 +4,7 @@ interface ContributionDisplayProps {
 
 export const ContributionDisplay = ({ percentage }: ContributionDisplayProps) => {
   return (
-    <div className="bg-white rounded-3xl shadow-lg p-4 md:p-8 w-full lg:max-w-lg">
+    <div className="bg-white rounded-3xl shadow-lg p-4 md:p-6 lg:p-8 w-full lg:max-w-lg">
       <h2 className="text-lg md:text-xl font-semibold mb-6">
         Salary Contribution Needed for Pension Goal
       </h2>

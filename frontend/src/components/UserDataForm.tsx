@@ -19,7 +19,7 @@ export const UserDataForm = ({ userData, onUserDataChange }: UserDataFormProps) 
     <div className="bg-white rounded-3xl shadow-lg p-4 md:p-8 flex-1">
       <h2 className="text-xl font-semibold mb-6">User Data</h2>
       <div className="space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium mb-1">Age</label>
             <div className="w-full px-3 py-2 bg-gray-50 rounded-lg text-gray-700">

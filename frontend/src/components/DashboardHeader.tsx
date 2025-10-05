@@ -5,7 +5,7 @@ interface DashboardHeaderProps {
 export const DashboardHeader = ({ hasData }: DashboardHeaderProps) => {
   return (
     <div className="flex justify-between items-center mb-6 md:mb-8">
-      <h1 className="text-2xl md:text-3xl font-bold text-white">Dashboard</h1>
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">Dashboard</h1>
       {hasData && (
         <button
           onClick={() => window.print()}

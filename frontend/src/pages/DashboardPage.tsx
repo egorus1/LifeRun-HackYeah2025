@@ -12,7 +12,7 @@ export const DashboardPage = () => {
     return (
         <div className="min-h-screen bg-cover bg-center bg-no-repeat p-4 md:p-8" style={{backgroundImage: `url(${bg})`}}>
             <DashboardHeader hasData={!!analysisData.percentage} />
-            <div className="flex flex-col lg:flex-row lg:justify-between gap-6">
+            <div className="flex flex-col xl:flex-row xl:justify-between gap-6">
                 <div className="space-y-6 flex-1">
                     <ObjectiveSection objective={objective} onObjectiveChange={setObjective} />
                     <div className="flex flex-col lg:flex-row gap-6">
@@ -27,7 +27,7 @@ export const DashboardPage = () => {
                         )}
                     </div>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 xl:max-w-lg">
                     <PensionChart data={analysisData.data} />
                 </div>
             </div>
