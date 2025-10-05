@@ -2,6 +2,9 @@ import { IsNumber, IsString, IsNotEmpty, IsOptional } from "class-validator";
 
 
 export class CreateUserDto {
+  @IsString() 
+  token: string;
+
   @IsString()
   @IsNotEmpty()
   age: string;
@@ -25,6 +28,7 @@ export class CreateUserDto {
   @IsNumber()
   @IsNotEmpty()
   willingToSave: number; 
+
    
   @IsString()
   @IsOptional()
@@ -38,6 +42,7 @@ export class CreateUserDto {
 export class UserDto {
   id: string;
   name: string | null;
+  token: string;
   gender: string;
   age: number;
   salary: number;
@@ -47,28 +52,4 @@ export class UserDto {
   disabilities: string | null;
   createdAt: Date;
   updatedAt: Date;
-  objective?: ObjectiveDto;
-}
-
-export class CreateObjectiveDto {
-  @IsString()
-  @IsNotEmpty() 
-  title: string;
-
-  @IsNumber()
-  @IsNotEmpty() 
-  desiredMonthlyPension: number;
-
-  @IsNumber()
-  userId: string;
-}
-
-export class ObjectiveDto {
-  id: string;
-  title: string;
-  desiredMonthlyPension: number;
-  userId: string;
-  createdAt: Date;
-  updatedAt: Date;
-  user?: UserDto;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service'; // Adjust path as needed
-import type { CreateObjectiveDto, CreateUserDto, ObjectiveDto, UserDto } from './dto/users.dto';
+import type {CreateUserDto, UserDto } from './dto/users.dto';
 
 @Injectable()
 export class UsersService {
@@ -8,6 +8,7 @@ export class UsersService {
 
     async createUser(CreateUserDto: CreateUserDto): Promise<UserDto> {
         const userData = {
+      token: CreateUserDto.token,
       age: parseInt(CreateUserDto.age),
       gender: CreateUserDto.gender,
       salary: CreateUserDto.salary,
@@ -21,12 +22,6 @@ export class UsersService {
     return this.prisma.user.create({
       data: userData,
     });
-    }
-
-    async createObjective(CreateObjectiveDto: CreateObjectiveDto): Promise<ObjectiveDto>{
-        return this.prisma.objective.create({
-            data: CreateObjectiveDto,
-        })
     }
 
 }

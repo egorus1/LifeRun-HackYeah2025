@@ -16,6 +16,7 @@
 
 model User {
   id                      String     @id @default(cuid())
+  token                   String
   name                    String?
   gender                  String
   age                     Int
