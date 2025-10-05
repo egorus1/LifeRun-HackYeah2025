@@ -13,6 +13,7 @@ export class UsersService {
       salary: CreateUserDto.salary,
       yearOfStarting: parseInt(CreateUserDto.workStartYear),
       plannedYearOfRetirement: parseInt(CreateUserDto.workEndYear),
+      willingToSave: CreateUserDto.willingToSave,
       name: CreateUserDto.name || null,
       disabilities: CreateUserDto.disabilities || null,
     };

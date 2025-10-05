@@ -21,6 +21,10 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   workStartYear: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  willingToSave: number; 
    
   @IsString()
   @IsOptional()
@@ -39,6 +43,7 @@ export class UserDto {
   salary: number;
   yearOfStarting: number;
   plannedYearOfRetirement: number;
+  willingToSave: number;
   disabilities: string | null;
   createdAt: Date;
   updatedAt: Date;
