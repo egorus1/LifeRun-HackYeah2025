@@ -1,0 +1,52 @@
+// This is your Prisma schema file
+// Learn more: https://pris.ly/d/prisma-schema
+
+   datasource db {
+     provider = "postgresql"
+     url      = env("DATABASE_URL")
+   }
+
+   generator client {
+     provider = "prisma-client-js"
+   }
+
+// ============================================
+// USER & OBJECTIVE MODELS
+// ============================================
+
+model User {
+  id                      String     @id @default(cuid())
+  token                   String
+  name                    String?
+  gender                  String
+  age                     Int
+  salary                  Int
+  yearOfStarting          Int
+  plannedYearOfRetirement Int
+  willingToSave           Int
+  disabilities            String?
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+  
+  objective               Objective? // One-to-one relationship (optional)
+  
+  @@index([yearOfStarting])
+  @@map("users")
+}
+
+model Objective {
+  id                     String   @id @default(cuid())
+  title                  String   @db.VarChar(255) // e.g., "World Traveler Lifestyle"
+  desiredMonthlyPension  Int      // Target monthly pension amount
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  
+  // Foreign Key
+  userId                 String   @unique // One-to-one relationship
+  
+  // Relations
+  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@map("objectives")
+}
