@@ -1,14 +1,14 @@
 // This is your Prisma schema file
 // Learn more: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
-}
+   datasource db {
+     provider = "postgresql"
+     url      = env("DATABASE_URL")
+   }
 
-datasource db {
-  provider = "postgresql" // Change to "mysql" or "sqlite" if needed
-  url      = env("DATABASE_URL")
-}
+   generator client {
+     provider = "prisma-client-js"
+   }
 
 // ============================================
 // USER & OBJECTIVE MODELS
@@ -17,12 +17,12 @@ datasource db {
 model User {
   id                      String     @id @default(cuid())
   name                    String?
-  sex                     String
+  gender                  String
   age                     Int
   salary                  Int
   yearOfStarting          Int
   plannedYearOfRetirement Int
-  disabilities            String 
+  disabilities            String?
   createdAt               DateTime   @default(now())
   updatedAt               DateTime   @updatedAt
   

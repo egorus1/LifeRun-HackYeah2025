@@ -7,9 +7,19 @@ export class UsersService {
     constructor(private prisma: PrismaService) {}
 
     async createUser(CreateUserDto: CreateUserDto): Promise<UserDto> {
-        return this.prisma.user.create({
-            data: CreateUserDto,
-        });
+        const userData = {
+      age: parseInt(CreateUserDto.age),
+      gender: CreateUserDto.gender,
+      salary: CreateUserDto.salary,
+      yearOfStarting: parseInt(CreateUserDto.workStartYear),
+      plannedYearOfRetirement: parseInt(CreateUserDto.workEndYear),
+      name: CreateUserDto.name || null,
+      disabilities: CreateUserDto.disabilities || null,
+    };
+
+    return this.prisma.user.create({
+      data: userData,
+    });
     }
 
     async createObjective(CreateObjectiveDto: CreateObjectiveDto): Promise<ObjectiveDto>{

@@ -1,46 +1,45 @@
-import { IsNumber, IsString, IsNotEmpty } from "class-validator";
+import { IsNumber, IsString, IsNotEmpty, IsOptional } from "class-validator";
 
 
 export class CreateUserDto {
   @IsString()
-  name?: string;
+  @IsNotEmpty()
+  age: string;
 
   @IsString()
   @IsNotEmpty()
-  sex: string;
-
-  @IsNumber()
-  @IsNotEmpty()
-  age: number;
+  gender: string;
 
   @IsNumber()
   @IsNotEmpty()
   salary: number;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  yearOfStarting: number;
-
-  @IsNumber()
-  @IsNotEmpty()
-  plannedYearOfRetirement: number;
+  workEndYear: string;
 
   @IsString()
   @IsNotEmpty()
-  disabilities: string;
+  workStartYear: string;
+   
+  @IsString()
+  @IsOptional()
+  name?: string;
+
+  @IsString()
+  @IsOptional()
+  disabilities?: string;
 }
-
-
 
 export class UserDto {
   id: string;
   name: string | null;
-  sex: string;
+  gender: string;
   age: number;
   salary: number;
   yearOfStarting: number;
   plannedYearOfRetirement: number;
-  disabilities: string;
+  disabilities: string | null;
   createdAt: Date;
   updatedAt: Date;
   objective?: ObjectiveDto;
