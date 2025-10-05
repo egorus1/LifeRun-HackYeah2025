@@ -1,4 +1,4 @@
-type Gender = 'male' | 'female';
+type Gender = 'male' | 'female' | 'others' | 'dont-want-to-say';
 
 interface UserData {
   age: number;
@@ -35,6 +35,8 @@ export const UserDataForm = ({ userData, onUserDataChange }: UserDataFormProps) 
             >
               <option value="male">Male</option>
               <option value="female">Female</option>
+              <option value="others">Others</option>
+              <option value="dont-want-to-say">Don't want to say</option>
             </select>
           </div>
           <div>
