@@ -23,7 +23,7 @@ export const Header = () => {
                         </Link>
 
                     </div>
-                    <h1 className="text-greenCustom text-4xl font-bold tracking-tight bg-gradient-to-r from-greenCustom to-purpleCustom bg-clip-text text-transparent">Zus</h1>
+                    <h1 className="text-greenCustom uppercase text-4xl font-bold tracking-tight bg-gradient-to-r from-greenCustom to-purpleCustom bg-clip-text text-transparent">Zus</h1>
                 </div>
 
                 {/* Desktop Menu */}
